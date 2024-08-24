@@ -31,7 +31,7 @@ module.exports = {
    },
    plugins: [
     new HtmlWebpackPlugin({
-      title: 'wampum',
+      title: 'Weathr',
       template: './src/index.html',
       favicon: './src/assets/meteor-solid.svg'
     }),
