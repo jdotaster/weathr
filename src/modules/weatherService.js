@@ -2,10 +2,14 @@ import { format } from 'date-fns';
 
 const API_KEY = '9VTULFNXC5FZCZMXK6PZC9GWQ';
 
-const WeatherService = (location = 'Boise') => {
-  const getData = async () => {
+const WeatherService = () => {
+  const getData = async (options = { location: 'Boise' }) => {
     const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next7days?key=${API_KEY}`, 
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/`
+        + `${options.location}`
+        + `${options.date1 ? '/' + options.date1 : ''}`
+        + `${options.date2 ? '/' + options.date2 : ''}`
+        + `?key=${API_KEY}`, 
       { 
         method: 'GET' 
       }
@@ -18,13 +22,13 @@ const WeatherService = (location = 'Boise') => {
     return response.json();
   }
 
-  const getCurrent = async () => {
-    const data = await getData();
+  const getCurrent = async (location) => {
+    const data = await getData({location: location, date1: 'today'});
     return data.currentConditions;
   }
 
-  const getForecast = async () => {
-    const data = await getData();
+  const getForecast = async (location) => {
+    const data = await getData({location: location, date1: 'next7days'});
     return data;
   }
 
