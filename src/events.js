@@ -2,7 +2,7 @@ const Events = () => {
 
     const locationSet = (location) => {
         const event = new CustomEvent('locationSet', { detail: location });
-        document.querySelector('')
+        document.dispatchEvent(event);
     }
 
     return { locationSet };
