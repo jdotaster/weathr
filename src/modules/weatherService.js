@@ -27,6 +27,11 @@ const WeatherService = () => {
     return data.currentConditions;
   }
 
+  const getHourly = async (location) => {
+    const data = await getData({location: location, date1: 'today'});
+    return data.days.hours;
+  }
+
   const getForecast = async (location) => {
     const data = await getData({location: location, date1: 'next7days'});
     return data;
