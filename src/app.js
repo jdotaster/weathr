@@ -11,19 +11,19 @@ const app = (async () => {
     const events = Events();
 
     document.addEventListener('DOMContentLoaded', () => {
-        // if (!localStorage.getItem("location")) {
-            locationInput.contentInput();
-        // }
         locationInput.headerInput();
-
+        if (!localStorage.getItem("location")) {
+            locationInput.contentInput();
+        } else {
+            forecast.currentConditions(localStorage.getItem("location"));
+        }
     })
 
     document.addEventListener('locationSet', (event) => {
-        console.log(event.detail);
+        localStorage.setItem("location", event.detail);
         const inputs = document.querySelectorAll('.location-input');
         for (const input of inputs) {
-            console.log(input);
             input.value = event.detail;
         }
-    })
+    });
 })();

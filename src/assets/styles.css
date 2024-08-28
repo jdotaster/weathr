@@ -12,6 +12,7 @@ body {
     grid-template-columns: 1fr 10fr 1fr;
     grid-template-areas: 
         "header header header"
+        "nav nav nav"
         ". content ."
 }
 
@@ -38,13 +39,30 @@ body {
     margin: auto 2rem;
 }
 
-.header-location-input {
-    font-size: 2rem;
+.nav {
+    display: flex;
+    justify-content: space-around;
+    grid-area: nav;
+    height: 3rem;
+    color: white;
+    background-color: black;
+}
+
+.nav-item {
+    margin: .5rem;
+    font-size: 1.5rem;
+    width: 20vw;
+    text-align: center;
+}
+
+.nav-item-active { 
+    border-bottom: 1px solid white;
 }
 
 .content {
     grid-area: content;
-    height: calc(100vh - 4rem);
+    height: calc(100vh - 4rem - 3rem);
+    padding: 1rem;
 }
 
 .content-form-container {
@@ -61,7 +79,12 @@ body {
     font-size: 2rem;
 }
 
-.content-form-location-input {
-    font-size: 2rem;
-    border-radius: 2px;
+.location-input {
+    border: 2px solid white;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    background-color: black;
+    color: white;
+    padding: .5rem;
+    margin: 4px auto;
 }
