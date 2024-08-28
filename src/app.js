@@ -1,5 +1,5 @@
 import './assets/styles.css';
-import WeatherService from "./modules/weatherService";
+import WeatherService from './modules/weatherService';
 import Forecast from './components/forecast';
 import LocationInput from './components/locationInput';
 import Events from './events';
@@ -10,20 +10,23 @@ const app = (async () => {
     const locationInput = LocationInput();
     const events = Events();
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
         locationInput.headerInput();
-        if (!localStorage.getItem("location")) {
+        if (!localStorage.getItem('location')) {
             locationInput.contentInput();
         } else {
-            forecast.currentConditions(localStorage.getItem("location"));
+            const weather = await weatherService.getCurrent(localStorage.getItem('location'))
+            forecast.currentConditions(weather);
         }
     })
 
-    document.addEventListener('locationSet', (event) => {
-        localStorage.setItem("location", event.detail);
+    document.addEventListener('locationSet', async (event) => {
+        localStorage.setItem('location', event.detail);
         const inputs = document.querySelectorAll('.location-input');
         for (const input of inputs) {
             input.value = event.detail;
         }
+        const weather = await weatherService.getCurrent(localStorage.getItem('location'))
+        forecast.currentConditions(weather);
     });
 })();

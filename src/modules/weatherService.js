@@ -24,7 +24,18 @@ const WeatherService = () => {
 
   const getCurrent = async (location) => {
     const data = await getData({location: location, date1: 'today'});
-    return data.currentConditions;
+    const current =  data.currentConditions;
+    return {
+      conditions: current.conditions,
+      dewpoint: current.dew,
+      feelslike: current.feelslike,
+      humidity: current.humidity,
+      pressure: current.pressure,
+      sunrise: current.sunrise,
+      sunset: current.sunset,
+      temp: current.temp,
+      windspeed: current.windspeed
+    }
   }
 
   const getHourly = async (location) => {

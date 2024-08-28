@@ -81,10 +81,92 @@ body {
 
 .location-input {
     border: 2px solid white;
-    border-radius: 1rem;
+    border-radius: .5rem;
     font-size: 1.5rem;
     background-color: black;
     color: white;
     padding: .5rem;
     margin: 4px auto;
+}
+
+.forecast-current {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 6fr 2fr 2fr 2fr;
+    grid-template-areas: 
+        "conditions conditions"
+        "feelslike humidity"
+        "dewpoint pressure"
+        "sunrise sunset";
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0,0,0,32%);
+    padding: 2rem;
+}
+
+.forecast-current-conditions {
+    grid-area: conditions;
+    display: flex;
+}
+
+.conditions-temperature {
+    width: calc(100% / 3);
+}
+
+.conditions-current {
+    width: calc(100% / 3);
+}
+
+.conditions-wind {
+    width: calc(100% / 3);
+}
+
+.conditions-item {
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: #2f005b;
+    border-radius: 1rem;
+    color: white;
+}
+
+.conditions-item>* {
+    font-size: 2rem;
+}
+
+.forecast-current-feelslike {
+    grid-area: feelslike;
+}
+
+.forecast-current-humidity {
+    grid-area: humidity;
+}
+
+.forecast-current-dewpoint {
+    grid-area: dewpoint;
+}
+
+.forecast-current-pressure {
+    grid-area: pressure;
+}
+.forecast-current-sunrise {
+    grid-area: sunrise;
+}
+.forecast-current-sunset {
+    grid-area: sunset;
+}
+
+.forecast-item {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #2f005b;
+    border-radius: 1rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.forecast-item>* {
+    font-size: 2rem;
+    margin: auto 0;
 }

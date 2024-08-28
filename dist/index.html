@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/436aee5f1b.js" crossorigin="anonymous"></script>
     <title>Weathr</title>
-    <link rel="icon" href="meteor-solid.svg"><script defer src="bundle.js"></script><link rel="icon" href="meteor-solid.svg"><script defer src="bundle.js"></script></head>
-</head>
+<link rel="icon" href="meteor-solid.svg"><script defer src="bundle.js"></script></head>
 <body>
     <body>
         <div id="header" class="header">
             <div class="header-title"><i class="fa-solid fa-meteor"></i> Weathr</div>
-            <div class="header-location-input">
-                <form action="#" class="header-location-form">
-                    <input class="header-location-input location-input" type="text" placeholder="City or zip code">
-                </form>
-            </div>
         </div>
         <div class="nav">
-            <div class="nav-item">Current</div>
+            <div class="nav-item nav-item-active">Current</div>
             <div class="nav-item">Today</div>
             <div class="nav-item">7-day</div>
         </div>
         <div id="content" class="content">
+            <div class="forecast-current">
+                <div class="forecast-current-conditions forecast-item"></div>
+                <div class="forecast-current-windspeed forecast-item"></div>
+                <div class="forecast-current-feelslike forecast-item"></div>
+                <div class="forecast-current-humidity forecast-item"></div>
+                <div class="forecast-current-dewpoint forecast-item"></div>
+                <div class="forecast-current-pressure forecast-item"></div>
+                <div class="forecast-current-sunrise forecast-item"></div>
+                <div class="forecast-current-sunset forecast-item"></div>
+            </div>
         </div>
     </body>
 </body>
